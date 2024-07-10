@@ -1,13 +1,36 @@
+import { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { searchData, showUsers } from "../../features/userDetailSlice";
+
 
 function NavBar() {
+  const dispatch = useDispatch();
+
+
+
+  const userlength = useSelector(state=>state.app.users)
+  const [search,setSearch] = useState("") // ye hold karwana hai Redux ke Store me Kyu ki muje Dusre component me ye data pass karna ahi
+
+  useEffect(()=>{
+    dispatch(searchData(search))
+  },[search]) // jitni bar type hoga utni bar useEffect run hoga
+
+  useEffect(()=>{
+    dispatch(showUsers())
+  },[])
+  console.log("search",search)
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">CRUD Prectic</Navbar.Brand>
+        <Navbar.Brand>
+          <Link to={"/"}>CRUD Prectic</Link>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -15,8 +38,10 @@ function NavBar() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Create Post</Nav.Link>
-            <Nav.Link href="#action1">All Post</Nav.Link>
+            <Nav.Link>
+              <Link to={"/read"}>Read Post</Link>
+            </Nav.Link>
+            <Nav.Link to={"/read"}>All Post ({userlength.length})</Nav.Link>
           </Nav>
           <Form className="d-flex w-80">
             <Form.Control
@@ -24,6 +49,7 @@ function NavBar() {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              onChange={(e) => setSearch(e.target.value)}
             />
           </Form>
         </Navbar.Collapse>
