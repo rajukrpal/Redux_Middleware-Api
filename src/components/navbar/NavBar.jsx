@@ -23,7 +23,6 @@ function NavBar() {
   useEffect(()=>{
     dispatch(showUsers())
   },[])
-  console.log("search",search)
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
