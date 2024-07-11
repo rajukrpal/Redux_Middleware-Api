@@ -26,7 +26,7 @@ function NavBar() {
   },[])
 
   return (
-    <Navbar expand="lg" className="bg-gray-300">
+    <Navbar expand="lg" className="bg-gray-300 fixed-top">
       <Container className="" fluid>
         <Navbar.Brand>
           <Link to={"/"}>CRUD Prectic</Link>

@@ -11,8 +11,10 @@ const RootLayout = () => {
       <div>
         <Provider store={store}>
           <NavBar />
-          <main>
+          <main  style={{ marginTop: '97px' }}>
+            <div style={{ padding: '0px' }}>
             <Outlet />
+            </div>
           </main>
         </Provider>
       </div>
