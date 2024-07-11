@@ -13,7 +13,8 @@ function NavBar() {
 
 
 
-  const userlength = useSelector(state=>state.app.users)
+  // const userlength = useSelector(state=>state.app.users)
+  const {users} = useSelector(state=>state.app) // aese {} ke andar, aap ke andar jo jo state hai us ko bahar nikal skte hai
   const [search,setSearch] = useState("") // ye hold karwana hai Redux ke Store me Kyu ki muje Dusre component me ye data pass karna ahi
 
   useEffect(()=>{
@@ -25,8 +26,8 @@ function NavBar() {
   },[])
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid>
+    <Navbar expand="lg" className="bg-gray-300">
+      <Container className="" fluid>
         <Navbar.Brand>
           <Link to={"/"}>CRUD Prectic</Link>
         </Navbar.Brand>
@@ -40,7 +41,7 @@ function NavBar() {
             <Nav.Link>
               <Link to={"/read"}>Read Post</Link>
             </Nav.Link>
-            <Nav.Link to={"/read"}>All Post ({userlength.length})</Nav.Link>
+            <Nav.Link to={"/read"}>All Post ({users.length})</Nav.Link>
           </Nav>
           <Form className="d-flex w-80">
             <Form.Control
