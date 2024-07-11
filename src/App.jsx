@@ -4,7 +4,6 @@ import RootLayout from "./components/rootLayout/RootLayout";
 import NotFound from "./NotFound";
 import Home from "./home/Home";
 import Read from "./components/readpage/Read";
-import View from "./components/viewpage/View";
 import Edit from "./components/edirPage/Edit";
 
 const App = () => {
