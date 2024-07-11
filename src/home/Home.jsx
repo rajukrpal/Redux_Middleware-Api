@@ -25,7 +25,7 @@ const Home = () => {
 
 
   return (
-    <div className="container mx-auto py-2">
+    <div className="container mx-auto py-2 px-4">
       <center className="py-2">
       <h3>User Detail Form</h3>
       </center>
