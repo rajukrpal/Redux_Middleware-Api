@@ -27,11 +27,11 @@ const Read = () => {
     );
   }
   return (
-    <div className=" row">
+    <div>
       {openModel ? (
         <View  id={id} openModel={openModel} setOpenModel={setOpenModel} />
       ) : (
-        <div className="container mx-auto row ">
+        <div className="container mx-auto row justify-center">
           <div className="flex justify-center items-center py-2 bg-blue-200 fixed top-[56px] z-10 w-full ">
            <div className="flex gap-5">
            <Form.Check
